@@ -1,0 +1,129 @@
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(../img/bg.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 50vw;
+    opacity: 0.8;
+
+    @media screen and (max-width: 992px) {
+      opacity: 0.2;
+    }
+  }
+}
+
+.nav-custom {
+  .navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+
+    span {
+      color: $primaryColor;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-left: 0.4rem;
+    }
+  }
+
+  #navbarSupportedContent {
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          color: $primaryColor;
+          font-weight: 500;
+          text-transform: uppercase;
+          margin-left: 2rem;
+          border-bottom: 2px solid transparent;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: darken($primaryColor, 30%);
+            border-bottom: 2px solid $primaryColor;
+          }
+        }
+
+        .btn-signup {
+          @include button();
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    margin-top: -2rem;
+  }
+}
+
+.section-custom {
+  margin-top: 10rem;
+
+  h1 {
+    font-weight: 700;
+    font-size: 4rem;
+    color: $primaryColor;
+    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 3rem;
+    color: $secondaryColor;
+    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  p {
+    color: $textColor;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  a {
+    @include button();
+    margin-top: 2rem;
+    border: 1px solid $primaryColor;
+
+    &:hover {
+      color: $primaryColor;
+      border: 1px solid $primaryColor;
+      background-color: transparent;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    margin-top: 3.5rem;
+    text-align: center;
+
+    h1,
+    h2,
+    p {
+      text-shadow: 1px 1px 2px rgba($textColor, 0.3);
+    }
+
+    h2 {
+      color: lighten($textColor, 10%);
+    }
+  }
+}
